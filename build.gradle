@@ -1,0 +1,115 @@
+plugins {
+    id 'application'
+    id 'java'
+}
+
+group = 'com.designpatterns'
+version = '1.0.0-SNAPSHOT'
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation platform('org.junit:junit-bom:5.10.2')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+    testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+}
+
+test {
+    useJUnitPlatform()
+}
+
+application {
+    mainClass = 'com.designpatterns.day03.Day03Demo'
+}
+
+tasks.register('runStrategy', JavaExec) {
+    group = 'application'
+    description = 'Run Strategy demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.strategy.StrategyDemo'
+}
+
+tasks.register('runTemplateMethod', JavaExec) {
+    group = 'application'
+    description = 'Run Template Method demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.templatemethod.TemplateMethodDemo'
+}
+
+tasks.register('runObserver', JavaExec) {
+    group = 'application'
+    description = 'Run Observer demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.observer.ObserverDemo'
+}
+
+tasks.register('runCommand', JavaExec) {
+    group = 'application'
+    description = 'Run Command demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.command.CommandDemo'
+}
+
+tasks.register('runChain', JavaExec) {
+    group = 'application'
+    description = 'Run Chain of Responsibility demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.chain.ChainDemo'
+}
+
+tasks.register('runValidationStrategy', JavaExec) {
+    group = 'application'
+    description = 'Run Validation Strategy practice demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.practice.validation.ValidationStrategyDemo'
+}
+
+tasks.register('runBugObserver', JavaExec) {
+    group = 'application'
+    description = 'Run Bug Tracker Observer practice demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.practice.observer.BugObserverDemo'
+}
+
+tasks.register('runPracticeSolution', JavaExec) {
+    group = 'application'
+    description = 'Run instructor practice solutions'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.practice.solution.PracticeSolutionDemo'
+}
+
+tasks.register('runHomework1', JavaExec) {
+    group = 'application'
+    description = 'Run Homework 1: Test Command Queue demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.practice.homework.command.TestCommandQueueDemo'
+}
+
+tasks.register('runHomework2', JavaExec) {
+    group = 'application'
+    description = 'Run Homework 2: Support Ticket Chain demo'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.practice.homework.chain.SupportChainDemo'
+}
+
+tasks.register('runHomeworkSolution', JavaExec) {
+    group = 'application'
+    description = 'Run instructor homework solutions (HW1–HW2)'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.practice.solution.homework.HomeworkSolutionDemo'
+}
+
+tasks.register('runQA', JavaExec) {
+    group = 'application'
+    description = 'Run QA-focused behavioral pattern demos'
+    classpath = sourceSets.main.runtimeClasspath
+    mainClass = 'com.designpatterns.day03.qa.QADemo'
+}

@@ -12,11 +12,13 @@ public class TestCommandQueue {
     private final Deque<AutomationCommand> history = new ArrayDeque<>();
 
     public void run(AutomationCommand command) {
-        throw new UnsupportedOperationException("TODO 1: execute and push to history");
+        command.execute();
+        history.push(command);
     }
 
     public void undoLast() {
-        throw new UnsupportedOperationException("TODO 2: pop and undo last command");
+       var command = history.pop();
+       command.undo();
     }
 
     public int historySize() { return history.size(); }
